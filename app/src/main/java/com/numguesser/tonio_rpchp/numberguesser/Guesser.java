@@ -50,6 +50,7 @@ public class Guesser extends Activity {
 
         final Button button = (Button) findViewById(R.id.guess_button);
 
+
         button.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
