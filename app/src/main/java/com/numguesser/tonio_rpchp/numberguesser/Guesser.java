@@ -33,10 +33,10 @@ import java.util.Random;
 
 public class Guesser extends Activity {
 
-    public int attmp = 5;
+    public int attempt = 5;
 
-    Random randn = new Random();
-    int rnd = randn.nextInt(100);
+    Random rand_num = new Random();
+    int rnd = rand_num.nextInt(100);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +44,9 @@ public class Guesser extends Activity {
         setContentView(R.layout.activity_guesser);
 
         final TextView tries_label = (TextView) findViewById(R.id.tries_label);
-        tries_label.setText(getString(R.string.tries_text)+attmp);
+        tries_label.setText(getString(R.string.tries_text)+ attempt);
+
+        final EditText number_txt = (EditText) findViewById(R.id.number);
 
         final Button button = (Button) findViewById(R.id.guess_button);
 
@@ -56,19 +58,23 @@ public class Guesser extends Activity {
                 InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
                 imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
 
-                if (attmp != 0) {
+                if (attempt != 0) {
 
                     try{
-                        EditText number_txt = (EditText) findViewById(R.id.number);
+
                         int num = Integer.parseInt(String.valueOf(number_txt.getText()));
 
-                        if (num == rnd) {
+                        if (num == 0 || num > 100){
+                            Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.in_range), Toast.LENGTH_SHORT);
+                            toast.show();
+                        }
+                        else if (num == rnd) {
                             Alert(getString(R.string.end_game), getString(R.string.win));
                         }
                         else{
-                            attmp --;
-                            tries_label.setText(getString(R.string.tries_text) + attmp);
-                            if (num < rnd && attmp != 0){
+                            attempt--;
+                            tries_label.setText(getString(R.string.tries_text) + attempt);
+                            if (num < rnd && attempt != 0){
                                 Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.more), Toast.LENGTH_SHORT);
                                 toast.show();
                             }
@@ -85,10 +91,9 @@ public class Guesser extends Activity {
                     }
                 }
 
-                EditText number_txt = (EditText) findViewById(R.id.number);
                 number_txt.setText("");
 
-                if (attmp==0){
+                if (attempt ==0){
                     Alert(getString(R.string.end_game), getString(R.string.lose)+rnd);
                 }
             }
@@ -111,10 +116,10 @@ public class Guesser extends Activity {
 
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
-                        rnd = randn.nextInt(100);
-                        attmp = 5;
+                        rnd = rand_num.nextInt(100);
+                        attempt = 5;
                         final TextView tries_label = (TextView) findViewById(R.id.tries_label);
-                        tries_label.setText(getString(R.string.tries_text)+attmp);
+                        tries_label.setText(getString(R.string.tries_text)+ attempt);
                     }
                 });
         alertDialogBuilder.setNegativeButton(getString(R.string.exit),

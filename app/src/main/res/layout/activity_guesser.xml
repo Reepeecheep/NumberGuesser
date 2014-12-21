@@ -32,6 +32,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
+            android:maxLength="3"
             android:id="@+id/number" />
 
     </LinearLayout>
@@ -47,7 +48,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tries_label"
-        android:textSize="20px"
+        android:textSize="30px"
+        android:textColor="#00C000"
         android:layout_gravity="right"/>
 
     <TextView

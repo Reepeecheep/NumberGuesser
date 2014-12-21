@@ -26,4 +26,6 @@
 
     <string name="tries_text">Tries: </string>
 
+    <string name="in_range">Outside range: Insert a number between 1 and 100</string>
+
 </resources>

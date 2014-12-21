@@ -26,4 +26,6 @@
 
     <string name="tries_text">Intentos: </string>
 
+    <string name="in_range">Fuera de rango: Inserta un numero entre 1 and 100</string>
+
 </resources>
