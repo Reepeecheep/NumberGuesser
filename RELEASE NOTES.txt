@@ -6,3 +6,4 @@ Version 2.0 features:
 * Better performance
 * Disabled horizontal orientation
 * Improvements and bug fixes
+* New attempt counter color
