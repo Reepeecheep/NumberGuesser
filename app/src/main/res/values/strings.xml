@@ -6,7 +6,6 @@
     <string name="action_settings">Settings</string>
     <string name="guess">Guess</string>
     <string name="ask">Insert a number</string>
-    <string name="tries">Tries:</string>
     
     <string name="more">Is Greater-than</string>
     <string name="less">Is Less-than</string>

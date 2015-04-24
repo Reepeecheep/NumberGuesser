@@ -1,31 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="action_settings">Configuraciones____</string>
-    <string name="app_name">Adivinador de Números</string>
-    <string name="welcome"><b>¡Hola Amigo!</b>\nPienso un número de 0 a 100\n¿Puedes adivinarlo en 5 intentos?\n</string>
-    <string name="guess">Adivinar</string>
-    <string name="ask">Ingresa un número</string>
-    <string name="tries">Intentos:</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="app_name">Devineur</string>
+    <string name="welcome"><b>Bonjour ami!</b>\nAvoir un nombre compris entre 1 à 100\nPouvez-vous deviner en 5 essais?\n</string>
+    <string name="guess">Deviner</string>
+    <string name="ask">Entrez un numéro</string>
 
-    <string name="more">Es Mayor</string>
-    <string name="less">Es menor</string>
+    <string name="more">Supérieur</string>
+    <string name="less">Moins</string>
 
-    <string name="win">Vale, Tu ganaste</string>
-    <string name="lose">Has perdido, el número era: </string>
+    <string name="win">Bien, Tu as gagné</string>
+    <string name="lose">Tu as perdu, Je ai choisi: </string>
 
-    <string name="new_game">Nuevo Juego</string>
+    <string name="new_game">Nouveau Jeu</string>
 
-    <string name="error">Ingresa un número válido</string>
+    <string name="error">Entrez un numéro valide</string>
 
-    <string name="end_game">Juego Terminado</string>
-    <string name="play_again">¿Deseas volver a jugar?</string>
+    <string name="end_game">Fin du jeu</string>
+    <string name="play_again">Un autre jeu?</string>
 
-    <string name="ok">Jugar</string>
-    <string name="exit">Salir</string>
+    <string name="ok">Jouer</string>
+    <string name="exit">Laisser</string>
 
-    <string name="tries_text">Intentos: </string>
+    <string name="tries_text">Essais: </string>
 
-    <string name="in_range">Fuera de rango: Inserta un numero entre 1 and 100</string>
+    <string name="in_range">Hors de portée, Avoir un nombre compris entre 1 à 100</string>
 
 </resources>

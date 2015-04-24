@@ -6,10 +6,9 @@
     <string name="welcome"><b>¡Hola Amigo!</b>\nPienso un número de 0 a 100\n¿Puedes adivinarlo en 5 intentos?\n</string>
     <string name="guess">Adivinar</string>
     <string name="ask">Ingresa un número</string>
-    <string name="tries">Intentos:</string>
 
     <string name="more">Es Mayor</string>
-    <string name="less">Es menor</string>
+    <string name="less">Es Menor</string>
 
     <string name="win">Vale, Tu ganaste</string>
     <string name="lose">Has perdido, el número era: </string>
@@ -26,6 +25,6 @@
 
     <string name="tries_text">Intentos: </string>
 
-    <string name="in_range">Fuera de rango: Inserta un numero entre 1 and 100</string>
+    <string name="in_range">Fuera de rango: Inserta un número entre 1 and 100</string>
 
 </resources>
