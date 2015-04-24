@@ -22,3 +22,17 @@ ScreenShots
 <img src="https://antonioreepicheep.files.wordpress.com/2014/11/numguesser.png"></img>
 <img src="https://antonioreepicheep.files.wordpress.com/2014/11/numguesser1.png"></img>
 <img src="https://antonioreepicheep.files.wordpress.com/2014/11/numguesser2.png"></img>
+
+Release Notes:
+
+Version 2.0.1 features:
+
+* Add French language support
+
+Version 2.0 features:
+
+* Newest gradle build system version
+* Better performance
+* Disabled horizontal orientation
+* Improvements and bug fixes
+* New attempt counter color
