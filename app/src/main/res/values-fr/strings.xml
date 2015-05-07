@@ -3,7 +3,7 @@
 
     <string name="action_settings">Paramètres</string>
     <string name="app_name">Devineur</string>
-    <string name="welcome"><b>Bonjour ami!</b>\nAvoir un nombre compris entre 1 à 100\nPouvez-vous deviner en 5 essais?\n</string>
+    <string name="welcome"><b>Bonjour ami!</b>\nAvoir un numéro compris entre 1 à 100\nPouvez-vous deviner en 5 essais?\n</string>
     <string name="guess">Deviner</string>
     <string name="ask">Entrez un numéro</string>
 
@@ -25,6 +25,6 @@
 
     <string name="tries_text">Essais: </string>
 
-    <string name="in_range">Hors de portée, Avoir un nombre compris entre 1 à 100</string>
+    <string name="in_range">Hors de portée, Avoir un numéro compris entre 1 à 100</string>
 
 </resources>
