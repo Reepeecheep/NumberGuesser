@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Adivinhar Número</string>
+    <string name="welcome"><b>Olá, amigo!</b>\nEu penso em um número entre 0 e 100\nVocê pode adivinhar o número em 5 tentativas?\n</string>
+    <string name="action_settings">Configurações</string>
+    <string name="guess">Adivinhar</string>
+    <string name="ask">Insira um número</string>
+    
+    <string name="more">É mais do que</string>
+    <string name="less">É menos do que</string>
+
+    <string name="win">OK, Você Ganhou</string>
+    <string name="lose">Você perdeu, o número era: </string>
+
+    <string name="new_game">Novo Jogo</string>
+
+    <string name="error">Tente um número válido</string>
+
+    <string name="end_game">Fim do jogo</string>
+    <string name="play_again">Jogar novamente?</string>
+
+    <string name="ok">Jogar</string>
+    <string name="exit">Sair</string>
+
+    <string name="tries_text">Tentativas: </string>
+
+    <string name="in_range">Fora do intervalo: Insira um número entre 1 e 100</string>
+
+</resources>
