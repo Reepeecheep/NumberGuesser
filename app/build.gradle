@@ -2,14 +2,14 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 20
-    buildToolsVersion "20.0.0"
+    buildToolsVersion '25.0.2'
 
     defaultConfig {
         applicationId "com.numguesser.tonio_rpchp.numberguesser"
         minSdkVersion 10
         targetSdkVersion 20
-        versionCode 3
-        versionName "2.0.2"
+        versionCode 4
+        versionName "3.0.1"
     }
     buildTypes {
         release {

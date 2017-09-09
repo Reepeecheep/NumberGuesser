@@ -69,19 +69,12 @@ public class Guesser extends Activity {
                             toast.show();
                         }
                         else if (num == rnd) {
-                            Alert(getString(R.string.end_game), getString(R.string.win));
+                            Alert(getString(R.string.end_game), getString(R.string.win), 1);
                         }
                         else{
                             attempt--;
                             tries_label.setText(getString(R.string.tries_text) + attempt);
-                            if (num < rnd && attempt != 0){
-                                Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.more), Toast.LENGTH_SHORT);
-                                toast.show();
-                            }
-                            else {
-                                Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.less), Toast.LENGTH_SHORT);
-                                toast.show();
-                            }
+                            closer(num, rnd);
                         }
 
                     }
@@ -94,45 +87,85 @@ public class Guesser extends Activity {
                 number_txt.setText("");
 
                 if (attempt ==0){
-                    Alert(getString(R.string.end_game), getString(R.string.lose)+rnd);
+                    Alert(getString(R.string.end_game), getString(R.string.lose)+rnd, 1);
                 }
             }
         });
 
     }
 
-    public void Alert(String tittle, String message){
+    public void Alert(String tittle, String message, Integer gameover){
 
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-
-        alertDialogBuilder.setCancelable(false);
 
         alertDialogBuilder.setTitle(tittle);
         alertDialogBuilder.setMessage(message);
 
+        if (gameover == 1){
+            alertDialogBuilder.setCancelable(false);
+            alertDialogBuilder.setPositiveButton(getString(R.string.play),
+                    new DialogInterface.OnClickListener() {
 
-        alertDialogBuilder.setPositiveButton(getString(R.string.ok),
-                new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface arg0, int arg1) {
+                            rnd = rand_num.nextInt(100);
+                            attempt = 5;
+                            final TextView tries_label = (TextView) findViewById(R.id.tries_label);
+                            tries_label.setText(getString(R.string.tries_text)+ attempt);
+                        }
+                    });
+            alertDialogBuilder.setNegativeButton(getString(R.string.exit),
+                    new DialogInterface.OnClickListener() {
 
-                    @Override
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        rnd = rand_num.nextInt(100);
-                        attempt = 5;
-                        final TextView tries_label = (TextView) findViewById(R.id.tries_label);
-                        tries_label.setText(getString(R.string.tries_text)+ attempt);
-                    }
-                });
-        alertDialogBuilder.setNegativeButton(getString(R.string.exit),
-                new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            System.exit(1);
+                        }
+                    });
+        }
+        else{
+            alertDialogBuilder.setCancelable(true);
+            alertDialogBuilder.setPositiveButton(getString(R.string.ok),
+                    new DialogInterface.OnClickListener() {
 
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        System.exit(1);
-                    }
-                });
+                        @Override
+                        public void onClick(DialogInterface arg0, int arg1) {
+
+                        }
+                    });
+        }
 
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
+    }
 
+    public void closer(Integer input_number, Integer rnd){
+        if (input_number >= rnd - 3 && input_number <= rnd + 3 && attempt > 0){
+            String text = "";
+            if (input_number > rnd){
+                text = getString(R.string.less);
+            }
+            if (input_number < rnd){
+                text = getString(R.string.more);
+            }
+            Alert(getString(R.string.onfire), text, 0);
+            switch_image(R.drawable.android_genio_o);
+        }
+        else{
+            switch_image(R.drawable.android_genio);
+            if (input_number < rnd){
+                Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.more), Toast.LENGTH_SHORT);
+                toast.show();
+            }
+            else {
+                Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.less), Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        }
+    }
+
+    public void switch_image(Integer my_drawable_id){
+        android.widget.ImageView back_img = (android.widget.ImageView) findViewById(R.id.imageView);
+        back_img.setImageResource(my_drawable_id);
     }
 }

@@ -12,6 +12,7 @@
 
     <string name="win">Vale, Tu ganaste</string>
     <string name="lose">Has perdido, el número era: </string>
+    <string name="onfire">¡Muy cerca!</string>
 
     <string name="new_game">Nuevo Juego</string>
 
@@ -20,7 +21,7 @@
     <string name="end_game">Juego Terminado</string>
     <string name="play_again">¿Deseas volver a jugar?</string>
 
-    <string name="ok">Jugar</string>
+    <string name="play">Jugar</string>
     <string name="exit">Salir</string>
 
     <string name="tries_text">Intentos: </string>

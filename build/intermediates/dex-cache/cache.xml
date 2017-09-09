@@ -2,32 +2,112 @@
 <items version="2" >
 
     <item
-        jar="/home/antonio/AndroidStudioProjects/NumberGuesser/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="8694693636ab36910c8100ce527c258ff3ebece0">
-        <dex dex="/home/antonio/AndroidStudioProjects/NumberGuesser/app/build/intermediates/pre-dexed/debug/classes-d8ada0a35977e0e670f8fa5b748c3965e12da79b.jar" />
-    </item>
-    <item
-        jar="/home/antonio/.Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/20.0.0/support-annotations-20.0.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
+        is-multidex="true"
+        jar="C:\Users\Antonio\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\20.0.0\support-annotations-20.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
         sha1="9d9013e9ff35fc3756411e62873c363c70c638fa">
-        <dex dex="/home/antonio/AndroidStudioProjects/NumberGuesser/app/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-3cd121a888f0c2cb01a4470de8b272f2125f08b5.jar" />
+        <dex dex="C:\Users\Antonio\Desktop\Android\NumberGuesser\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-20.0.0_8821bd83f89dded0f4a8ab3dce50d47cf747afab\classes.dex" />
     </item>
     <item
-        jar="/home/antonio/AndroidStudioProjects/NumberGuesser/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/libs/internal_impl-20.0.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d">
-        <dex dex="/home/antonio/AndroidStudioProjects/NumberGuesser/app/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-41311d970ff46d2d040972de9fbd108f04277500.jar" />
-    </item>
-    <item
-        jar="/home/antonio/AndroidStudioProjects/NumberGuesser/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
+        is-multidex="true"
+        jar="C:\Users\Antonio\.android\build-cache\976cd6c2c52d7662a4db3adfc52e4bb68cddaf95\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
         sha1="f21927d22fe31889ecce94dd697a2e75b137e0ef">
-        <dex dex="/home/antonio/AndroidStudioProjects/NumberGuesser/app/build/intermediates/pre-dexed/debug/classes-340d24a50c349f4e5e7fc8e0c9194099307b1b94.jar" />
+        <dex dex="C:\Users\Antonio\Desktop\Android\NumberGuesser\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_186cfe844671ddf0b79fac41a9a578f780ba2261\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Antonio\.android\build-cache\4de2ecc42dc25f9b5d8b1a23d47e83dc6f8161ce\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8694693636ab36910c8100ce527c258ff3ebece0">
+        <dex dex="C:\Users\Antonio\Desktop\Android\NumberGuesser\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6f8c0ac4b550042b6bb23d4da0e38717ca766a18\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Antonio\.android\build-cache\4de2ecc42dc25f9b5d8b1a23d47e83dc6f8161ce\output\jars\libs\internal_impl-20.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d">
+        <dex dex="C:\Users\Antonio\Desktop\Android\NumberGuesser\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-20.0.0_6808f7fa10baeffa6deead58a9dec6423da85652\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Antonio\Desktop\Android\NumberGuesser\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f07fa442707da65882d4efbf41c688a82110ffaf">
+        <dex dex="C:\Users\Antonio\Desktop\Android\NumberGuesser\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_348d29a1cee3daffe47390f8d4f97c0d1e2d8175\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Antonio\Desktop\Android\NumberGuesser\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="C:\Users\Antonio\Desktop\Android\NumberGuesser\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_b32321e1a22640d93383b8168b3dfeb0cad597ab\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Antonio\.android\build-cache\4de2ecc42dc25f9b5d8b1a23d47e83dc6f8161ce\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8694693636ab36910c8100ce527c258ff3ebece0">
+        <dex dex="C:\Users\Antonio\Desktop\Android\NumberGuesser\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6f8c0ac4b550042b6bb23d4da0e38717ca766a18\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Antonio\Desktop\Android\NumberGuesser\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bb8d78e9c04074e417d047b84aae973e17ff0b31">
+        <dex dex="C:\Users\Antonio\Desktop\Android\NumberGuesser\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_348d29a1cee3daffe47390f8d4f97c0d1e2d8175\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Antonio\.android\build-cache\4de2ecc42dc25f9b5d8b1a23d47e83dc6f8161ce\output\jars\libs\internal_impl-20.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d">
+        <dex dex="C:\Users\Antonio\Desktop\Android\NumberGuesser\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-20.0.0_6808f7fa10baeffa6deead58a9dec6423da85652\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Antonio\.android\build-cache\976cd6c2c52d7662a4db3adfc52e4bb68cddaf95\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f21927d22fe31889ecce94dd697a2e75b137e0ef">
+        <dex dex="C:\Users\Antonio\Desktop\Android\NumberGuesser\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_186cfe844671ddf0b79fac41a9a578f780ba2261\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Antonio\Desktop\Android\NumberGuesser\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="C:\Users\Antonio\Desktop\Android\NumberGuesser\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_b32321e1a22640d93383b8168b3dfeb0cad597ab\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Antonio\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\20.0.0\support-annotations-20.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa">
+        <dex dex="C:\Users\Antonio\Desktop\Android\NumberGuesser\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-20.0.0_8821bd83f89dded0f4a8ab3dce50d47cf747afab\classes.dex" />
     </item>
 
 </items>

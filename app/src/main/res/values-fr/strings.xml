@@ -12,6 +12,7 @@
 
     <string name="win">Bien, Tu as gagné</string>
     <string name="lose">Tu as perdu, Je ai choisi: </string>
+    <string name="onfire">À proximité!</string>
 
     <string name="new_game">Nouveau Jeu</string>
 
@@ -20,7 +21,7 @@
     <string name="end_game">Fin du jeu</string>
     <string name="play_again">Un autre jeu?</string>
 
-    <string name="ok">Jouer</string>
+    <string name="play">Jouer</string>
     <string name="exit">Laisser</string>
 
     <string name="tries_text">Essais: </string>
