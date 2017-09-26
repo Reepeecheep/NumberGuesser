@@ -22,6 +22,14 @@ ScreenShots
 
 Release Notes:
 
+Version 3.0.2 features:
+
+* Improves gameplay
+* Better performance
+* New Icons
+* Add Brazilian Portuguese Language Support
+* Drawable Errors Solved
+
 Version 2.0.1 features:
 
 * Add French language support
@@ -33,14 +41,4 @@ Version 2.0 features:
 * Disabled horizontal orientation
 * Improvements and bug fixes
 * New attempt counter color
-
-
-
-Version 3.0.2 features:
-
-* Improves gameplay
-* Better performance
-* New Icons
-* Add Brazilian Portugues Language Support
-* Drawable Errors Solved
 
