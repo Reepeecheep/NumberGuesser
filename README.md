@@ -12,16 +12,13 @@ A Simple Number Guesser Game for Android
 <strong>Copying: </string>
 <a href= "https://github.com/Reepeecheep/NumberGuesser/blob/master/COPYING">https://github.com/Reepeecheep/NumberGuesser/blob/master/COPYING</a>
 <br>
-<strong>Apk History: </string>
-<a href= "https://drive.google.com/folderview?id=0B6TZcP7E2LB0MVRSckFpRlFqXzA&usp=sharing">Here</a>
 
 ScreenShots
 ==========
 
-<img src="https://antonioreepicheep.files.wordpress.com/2014/11/numguesser3.png"></img>
-<img src="https://antonioreepicheep.files.wordpress.com/2014/11/numguesser.png"></img>
-<img src="https://antonioreepicheep.files.wordpress.com/2014/11/numguesser1.png"></img>
-<img src="https://antonioreepicheep.files.wordpress.com/2014/11/numguesser2.png"></img>
+<img src="https://user-images.githubusercontent.com/2231477/30884220-631e17b6-a2d4-11e7-89f7-2b64a682369a.png"></img>
+<img src="https://user-images.githubusercontent.com/2231477/30884219-6316b99e-a2d4-11e7-910a-56bf9d589c70.png"></img>
+<img src="https://user-images.githubusercontent.com/2231477/30884221-6328389a-a2d4-11e7-8945-55bbbe5b2634.png"></img>
 
 Release Notes:
 
@@ -36,3 +33,14 @@ Version 2.0 features:
 * Disabled horizontal orientation
 * Improvements and bug fixes
 * New attempt counter color
+
+
+
+Version 3.0.2 features:
+
+* Improves gameplay
+* Better performance
+* New Icons
+* Add Brazilian Portugues Language Support
+* Drawable Errors Solved
+
