@@ -8,8 +8,8 @@ android {
         applicationId "com.numguesser.tonio_rpchp.numberguesser"
         minSdkVersion 10
         targetSdkVersion 20
-        versionCode 4
-        versionName "3.0.1"
+        versionCode 5
+        versionName "3.0.3"
     }
     buildTypes {
         release {

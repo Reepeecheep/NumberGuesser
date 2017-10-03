@@ -1,5 +1,13 @@
 Release Notes:
 
+Version 3.0.2 features:
+
+* Improves gameplay
+* Better performance
+* New Icons
+* Add Brazilian Portuguese Language Support
+* Drawable Errors Solved
+
 Version 2.0.1 features:
 
 * Add French language support
