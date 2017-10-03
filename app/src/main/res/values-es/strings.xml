@@ -9,10 +9,11 @@
 
     <string name="more">Es Mayor</string>
     <string name="less">Es Menor</string>
+    <string name="on_fire">¡Muy cerca!</string>
 
     <string name="win">Vale, Tu ganaste</string>
     <string name="lose">Has perdido, el número era: </string>
-    <string name="onfire">¡Muy cerca!</string>
+
 
     <string name="new_game">Nuevo Juego</string>
 
@@ -23,6 +24,7 @@
 
     <string name="play">Jugar</string>
     <string name="exit">Salir</string>
+    <string name="ok">OK</string>
 
     <string name="tries_text">Intentos: </string>
 
