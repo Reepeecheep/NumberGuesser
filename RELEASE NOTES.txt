@@ -1,6 +1,10 @@
 Release Notes:
 
-Version 3.0.2 features:
+Version 3.0.4
+
+* Fix Brazilian Portuguese Language translation
+
+Version 3.0.3 features:
 
 * Improves gameplay
 * Better performance
