@@ -108,6 +108,7 @@ public class Guesser extends Activity {
 
                         @Override
                         public void onClick(DialogInterface arg0, int arg1) {
+                            switch_image(R.drawable.android_genio);
                             rnd = rand_num.nextInt(100);
                             attempt = 5;
                             final TextView tries_label = (TextView) findViewById(R.id.tries_label);
@@ -148,7 +149,7 @@ public class Guesser extends Activity {
             if (input_number < rnd){
                 text = getString(R.string.more);
             }
-            Alert(getString(R.string.onfire), text, 0);
+            Alert(getString(R.string.on_fire), text, 0);
             switch_image(R.drawable.android_genio_o);
         }
         else{

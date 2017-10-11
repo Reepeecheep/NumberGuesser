@@ -9,10 +9,10 @@
 
     <string name="more">Supérieur</string>
     <string name="less">Moins</string>
+    <string name="on_fire">À proximité!</string>
 
     <string name="win">Bien, Tu as gagné</string>
     <string name="lose">Tu as perdu, Je ai choisi: </string>
-    <string name="onfire">À proximité!</string>
 
     <string name="new_game">Nouveau Jeu</string>
 
@@ -23,6 +23,7 @@
 
     <string name="play">Jouer</string>
     <string name="exit">Laisser</string>
+    <string name="ok">OK</string>
 
     <string name="tries_text">Essais: </string>
 

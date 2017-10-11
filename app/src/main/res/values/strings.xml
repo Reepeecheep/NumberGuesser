@@ -9,7 +9,7 @@
     
     <string name="more">Is Greater-than</string>
     <string name="less">Is Less-than</string>
-    <string name="onfire">So close!</string>
+    <string name="on_fire">So close!</string>
 
     <string name="win">OK, You Win</string>
     <string name="lose">You lose, the number was: </string>
