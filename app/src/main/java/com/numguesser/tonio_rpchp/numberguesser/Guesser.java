@@ -36,7 +36,7 @@ public class Guesser extends Activity {
     public int attempt = 5;
 
     Random rand_num = new Random();
-    int rnd = rand_num.nextInt(100);
+    int rnd = rand_num.nextInt(100) + 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,7 +109,7 @@ public class Guesser extends Activity {
                         @Override
                         public void onClick(DialogInterface arg0, int arg1) {
                             switch_image(R.drawable.android_genio);
-                            rnd = rand_num.nextInt(100);
+                            rnd = rand_num.nextInt(100) + 1;
                             attempt = 5;
                             final TextView tries_label = (TextView) findViewById(R.id.tries_label);
                             tries_label.setText(getString(R.string.tries_text)+ attempt);
