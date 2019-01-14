@@ -19,7 +19,7 @@
     <string name="error">Entrez un nombre valide</string>
 
     <string name="end_game">Fin du jeu</string>
-    <string name="play_again"Rejouer ?</string>
+    <string name="play_again">Rejouer ?</string>
 
     <string name="play">Jouer</string>
     <string name="exit">Quitter</string>
