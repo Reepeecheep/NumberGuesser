@@ -189,7 +189,7 @@ public class Guesser extends Activity {
 
     public void start_game(){
         switch_image(R.drawable.android_genio);
-        rnd = 12; //rand_num.nextInt(100) + 1;
+        rnd = rand_num.nextInt(100) + 1;
         attempt = 5;
         final TextView tries_label = findViewById(R.id.tries_label);
         tries_label.setText(getString(R.string.tries_text)+ attempt);
