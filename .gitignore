@@ -20,8 +20,8 @@ release/
 
 # Gradle files
 .gradle/
-.gradle/gradle-wrapper.properties
-.gradle/gradle-wrapper.jar
+gradle/gradle-wrapper.properties
+gradle/gradle-wrapper.jar
 build/
 
 # Local configuration file (sdk path, etc)
