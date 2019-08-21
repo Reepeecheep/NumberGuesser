@@ -2,6 +2,7 @@
 *.apk
 *.ap_
 *.aab
+.DS_Store
 
 gradlew
 gradlew.bat
