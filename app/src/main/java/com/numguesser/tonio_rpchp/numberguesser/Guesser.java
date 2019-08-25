@@ -71,7 +71,13 @@ public class Guesser extends Activity {
                         else{
                             attempt--;
                             tries_label.setText(getString(R.string.tries_text) + attempt);
-                            is_near(num, rnd);
+
+                            if (attempt > 0){
+                                is_near(num, rnd);
+                            }
+                            else {
+                                Alert(getString(R.string.end_game), getString(R.string.lose)+rnd, 1);
+                            }
                         }
                     }
                     catch(Exception e){
@@ -79,11 +85,11 @@ public class Guesser extends Activity {
                         //toast.show();
                     }
                 }
-
+                /*
                 if (attempt == 0) {
                     Alert(getString(R.string.end_game), getString(R.string.lose)+rnd, 1);
                 }
-
+                */
                 number_txt.setText("");
             }
         });
@@ -136,7 +142,7 @@ public class Guesser extends Activity {
                         alertDialog.show();
                     }
                 }
-            } , 800
+            } , 700
         );
 
         if (game_over != 1){
@@ -148,7 +154,7 @@ public class Guesser extends Activity {
                           alertDialog.dismiss();
                       }
                   }
-              } , 4000
+              } , 3000
             );
         }
 
