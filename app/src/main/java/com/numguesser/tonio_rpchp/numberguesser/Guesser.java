@@ -83,13 +83,10 @@ public class Guesser extends Activity {
                     catch(Exception e){
                         //Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.error), Toast.LENGTH_SHORT);
                         //toast.show();
+                        //Alert(getString(R.string.error), getString(R.string.in_range), 0);
                     }
                 }
-                /*
-                if (attempt == 0) {
-                    Alert(getString(R.string.end_game), getString(R.string.lose)+rnd, 1);
-                }
-                */
+
                 number_txt.setText("");
             }
         });
