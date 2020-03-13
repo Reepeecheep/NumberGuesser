@@ -26,7 +26,10 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
+import android.os.Vibrator;
+import android.os.VibrationEffect;
+import android.os.Build;
+//import android.widget.Toast;
 
 import java.util.Random;
 import android.os.Handler;
@@ -67,13 +70,14 @@ public class Guesser extends Activity {
                         else if (num == rnd) {
                             switch_image(R.drawable.android_genio_sad);
                             Alert(getString(R.string.end_game), getString(R.string.win), 1);
+                            vibrate();
                         }
                         else{
                             attempt--;
                             tries_label.setText(getString(R.string.tries_text) + attempt);
 
                             if (attempt > 0){
-                                is_near(num, rnd);
+                                check_rand(num, rnd);
                             }
                             else {
                                 Alert(getString(R.string.end_game), getString(R.string.lose)+rnd, 1);
@@ -81,9 +85,7 @@ public class Guesser extends Activity {
                         }
                     }
                     catch(Exception e){
-                        //Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.error), Toast.LENGTH_SHORT);
-                        //toast.show();
-                        //Alert(getString(R.string.error), getString(R.string.in_range), 0);
+                        Alert(getString(R.string.error), getString(R.string.in_range), 0);
                     }
                 }
 
@@ -158,32 +160,41 @@ public class Guesser extends Activity {
         //alertDialog.show();
     }
 
-    public void is_near(Integer input_number, Integer rnd){
-        if (input_number >= rnd - 3 && input_number <= rnd + 3 && attempt > 0){
-            String text = "";
-            if (input_number > rnd){
-                text = getString(R.string.less);
-            }
-            if (input_number < rnd){
-                text = getString(R.string.more);
-            }
+    public void check_rand(Integer input_number, Integer rnd){
+        String Tittle = "";
+        String Text = getString(R.string.more);
+
+
+        if (input_number > rnd){
+            Text = getString(R.string.less);
+        }
+
+        if (input_number >= rnd - 3 && input_number <= rnd + 3) {
+            Tittle = getString(R.string.on_fire);
             switch_image(R.drawable.android_genio_o);
-            Alert(getString(R.string.on_fire), text, 0);
+            vibrate();
         }
         else{
             switch_image(R.drawable.android_genio);
-            if (input_number < rnd){
-                //Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.more), Toast.LENGTH_SHORT);
-                //toast.show();
-                Alert("", getString(R.string.more), 0);
-            }
-            else {
-                //Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.less), Toast.LENGTH_SHORT);
-                //toast.show();
-                Alert("", getString(R.string.less), 0);
-            }
+        }
+
+        Alert(Tittle, Text, 0);
+
+    }
+    public void vibrate(){
+        Vibrator v = (Vibrator) getSystemService(this.VIBRATOR_SERVICE);
+        v.vibrate(500);
+
+
+        // Vibrate for 500 milliseconds
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            v.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
+        } else {
+            //deprecated in API 26
+            v.vibrate(500);
         }
     }
+
 
     public void switch_image(Integer my_drawable_id){
         android.widget.ImageView back_img = findViewById(R.id.imageView);
