@@ -53,6 +53,15 @@
         android:textSize="30sp" />
 
     <TextView
+        android:id="@+id/last_try_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:textColor="#00C000"
+        android:textSize="15sp"
+        />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/message_label" />

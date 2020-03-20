@@ -48,6 +48,7 @@ public class Guesser extends Activity {
         start_game();
 
         final TextView tries_label = findViewById(R.id.tries_label);
+        final TextView last_try_label = findViewById(R.id.last_try_label);
         final EditText number_txt = findViewById(R.id.number);
         final Button button = findViewById(R.id.guess_button);
 
@@ -70,17 +71,20 @@ public class Guesser extends Activity {
                         else if (num == rnd) {
                             switch_image(R.drawable.android_genio_sad);
                             Alert(getString(R.string.end_game), getString(R.string.win), 1);
+                            last_try_label.setText(getString(R.string.win));
                             vibrate();
                         }
                         else{
                             attempt--;
-                            tries_label.setText(getString(R.string.tries_text) + attempt);
+                            tries_label.setText(String.format("%s %d ",getString(R.string.tries_text), attempt));
 
                             if (attempt > 0){
-                                check_rand(num, rnd);
+                                String result = check_rand(num, rnd);
+                                last_try_label.setText(result);
                             }
                             else {
                                 Alert(getString(R.string.end_game), getString(R.string.lose)+rnd, 1);
+                                last_try_label.setText(String.format("%s %d ", getString(R.string.lose), rnd));
                             }
                         }
                     }
@@ -153,17 +157,16 @@ public class Guesser extends Activity {
                           alertDialog.dismiss();
                       }
                   }
-              } , 3000
+              } , 2500
             );
         }
 
         //alertDialog.show();
     }
 
-    public void check_rand(Integer input_number, Integer rnd){
+    public String check_rand(Integer input_number, Integer rnd){
         String Tittle = "";
         String Text = getString(R.string.more);
-
 
         if (input_number > rnd){
             Text = getString(R.string.less);
@@ -180,11 +183,17 @@ public class Guesser extends Activity {
 
         Alert(Tittle, Text, 0);
 
+        if (Tittle != ""){
+            Text = String.format("%s, %s", Tittle, Text);
+        }
+
+        String msg = String.format("(%d) %s", input_number, Text);
+
+        return msg;
     }
     public void vibrate(){
         Vibrator v = (Vibrator) getSystemService(this.VIBRATOR_SERVICE);
         v.vibrate(500);
-
 
         // Vibrate for 500 milliseconds
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -206,6 +215,8 @@ public class Guesser extends Activity {
         rnd = rand_num.nextInt(100) + 1;
         attempt = 5;
         final TextView tries_label = findViewById(R.id.tries_label);
-        tries_label.setText(getString(R.string.tries_text)+ attempt);
+        final TextView last_try_label = findViewById(R.id.last_try_label);
+        tries_label.setText(String.format("%s %d ",getString(R.string.tries_text), attempt));
+        last_try_label.setText("");
     }
 }
