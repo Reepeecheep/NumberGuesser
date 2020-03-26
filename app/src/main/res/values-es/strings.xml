@@ -28,5 +28,9 @@
     <string name="tries_text">Intentos: </string>
 
     <string name="in_range">Fuera de rango: Inserta un número entre 1 y 100</string>
+    <string name="fab_menu">Menú</string>
+    <string name="character1">Genio (Nuevo)</string>
+    <string name="character2">Genio (Viejo)</string>
+    <string name="change_msg">Cambiado</string>
 
 </resources>

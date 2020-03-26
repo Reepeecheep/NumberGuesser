@@ -29,4 +29,9 @@
 
     <string name="in_range">Outside range: Insert a number between 1 and 100</string>
 
+    <string name="fab_menu">Menu</string>
+    <string name="character1">Genie (New)</string>
+    <string name="character2">Genie (Old)</string>
+    <string name="change_msg">Changed</string>
+
 </resources>

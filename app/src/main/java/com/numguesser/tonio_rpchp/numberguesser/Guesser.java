@@ -19,7 +19,9 @@ package com.numguesser.tonio_rpchp.numberguesser;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -29,16 +31,28 @@ import android.widget.TextView;
 import android.os.Vibrator;
 import android.os.VibrationEffect;
 import android.os.Build;
-//import android.widget.Toast;
 
+
+import android.widget.Toast;
 import java.util.Random;
 import android.os.Handler;
+
+import com.github.clans.fab.FloatingActionButton;
+import com.github.clans.fab.FloatingActionMenu;
 
 public class Guesser extends Activity {
 
     public int attempt;
     Random rand_num = new Random();
     int rnd;
+    int clue_min = 0;
+    int clue_max = 0;
+
+    int MainCharacter;
+    private FloatingActionMenu menu;
+    private FloatingActionButton fab1;
+    private FloatingActionButton fab2;
+    //private FloatingActionButton fab3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +65,22 @@ public class Guesser extends Activity {
         final TextView last_try_label = findViewById(R.id.last_try_label);
         final EditText number_txt = findViewById(R.id.number);
         final Button button = findViewById(R.id.guess_button);
+
+        fab1 =  this.findViewById(R.id.fab1);
+        fab2 =  this.findViewById(R.id.fab2);
+        //fab3 =  this.findViewById(R.id.fab3);
+
+        fab1.setOnClickListener(clickListener);
+        fab2.setOnClickListener(clickListener);
+        //fab3.setOnClickListener(clickListener);
+
+
+        menu = findViewById(R.id.fab_menu);
+        menu.setClosedOnTouchOutside(true);
+
+        SharedPreferences Preferences = getSharedPreferences("com.numguesser.com", Context.MODE_PRIVATE);
+        MainCharacter = Preferences.getInt("avatar", R.drawable.android_genio);
+        switch_image(MainCharacter, 0);
 
         button.setOnClickListener(new View.OnClickListener() {
 
@@ -69,7 +99,7 @@ public class Guesser extends Activity {
                             Alert(getString(R.string.error), getString(R.string.in_range), 0);
                         }
                         else if (num == rnd) {
-                            switch_image(R.drawable.android_genio_sad);
+                            switch_image(R.drawable.android_genio_sad, 2);
                             Alert(getString(R.string.end_game), getString(R.string.win), 1);
                             last_try_label.setText(getString(R.string.win));
                             vibrate();
@@ -157,7 +187,7 @@ public class Guesser extends Activity {
                           alertDialog.dismiss();
                       }
                   }
-              } , 2500
+              } , 2200
             );
         }
 
@@ -165,7 +195,7 @@ public class Guesser extends Activity {
     }
 
     public String check_rand(Integer input_number, Integer rnd){
-        String Tittle = "";
+        String Tittle = String.format("%s %d", getString(R.string.tries_text), attempt);
         String Text = getString(R.string.more);
 
         if (input_number > rnd){
@@ -174,11 +204,11 @@ public class Guesser extends Activity {
 
         if (input_number >= rnd - 3 && input_number <= rnd + 3) {
             Tittle = getString(R.string.on_fire);
-            switch_image(R.drawable.android_genio_o);
+            switch_image(R.drawable.android_genio_o, 1);
             vibrate();
         }
         else{
-            switch_image(R.drawable.android_genio);
+            switch_image(MainCharacter, 0);
         }
 
         Alert(Tittle, Text, 0);
@@ -191,6 +221,7 @@ public class Guesser extends Activity {
 
         return msg;
     }
+
     public void vibrate(){
         Vibrator v = (Vibrator) getSystemService(this.VIBRATOR_SERVICE);
         v.vibrate(500);
@@ -204,14 +235,36 @@ public class Guesser extends Activity {
         }
     }
 
-
-    public void switch_image(Integer my_drawable_id){
+    public void switch_image(Integer my_drawable_id, int mod){
         android.widget.ImageView back_img = findViewById(R.id.imageView);
+
+        switch (MainCharacter){
+            case R.drawable.android_genio:
+
+                if (mod == 1){
+                    my_drawable_id = R.drawable.android_genio_o;
+                }
+                if (mod == 2){
+                    my_drawable_id = R.drawable.android_genio_sad;
+                }
+
+                break;
+            case R.drawable.android_genio_old:
+
+                if (mod == 1){
+                    my_drawable_id = R.drawable.android_genio_old_o;
+                }
+                if (mod == 2){
+                    my_drawable_id = R.drawable.android_genio_old_sad;
+                }
+                break;
+        }
+
         back_img.setImageResource(my_drawable_id);
     }
 
     public void start_game(){
-        switch_image(R.drawable.android_genio);
+        switch_image(MainCharacter, 0);
         rnd = rand_num.nextInt(100) + 1;
         attempt = 5;
         final TextView tries_label = findViewById(R.id.tries_label);
@@ -219,4 +272,42 @@ public class Guesser extends Activity {
         tries_label.setText(String.format("%s %d ",getString(R.string.tries_text), attempt));
         last_try_label.setText("");
     }
+
+    private View.OnClickListener clickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+            SharedPreferences Preferences = getSharedPreferences("com.numguesser.com", Context.MODE_PRIVATE);
+            SharedPreferences.Editor PreferencesEditor;
+            PreferencesEditor = Preferences.edit();
+
+            int img_resource = 0;
+
+            switch (v.getId()) {
+                case R.id.fab1:
+                    img_resource = R.drawable.android_genio;
+                    break;
+                case R.id.fab2:
+                    img_resource = R.drawable.android_genio_old;
+                    break;
+                /*
+                case R.id.fab3:
+                    fab1.setVisibility(View.GONE);
+                    fab2.setVisibility(View.VISIBLE);
+                    break;
+                 */
+            }
+
+            Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.change_msg), Toast.LENGTH_SHORT);
+            toast.show();
+
+            PreferencesEditor.putInt("avatar", img_resource);
+            PreferencesEditor.commit();
+
+            switch_image(img_resource, 0);
+            MainCharacter = img_resource;
+
+            menu.close(true);
+        }
+    };
 }

@@ -28,5 +28,9 @@
     <string name="tries_text">Essais : </string>
 
     <string name="in_range">Hors de portée : insérer un nombre compris entre 1 et 100</string>
+    <string name="fab_menu">Menu</string>
+    <string name="character1">Génie (Moderne)</string>
+    <string name="character2">Génie (Vieux)</string>
+    <string name="change_msg">Changé</string>
 
 </resources>
