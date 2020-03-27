@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Getal raden</string>
+    <string name="welcome"><b>Hee, maatje!</b>\nIk heb een getal tussen 0 en 100 in gedachten.\nKun jij in max. 5 keer raden welk getal dat is?\n</string>
+    <string name="action_settings">Instellingen</string>
+    <string name="guess">Gokken</string>
+    <string name="ask">Voer een getal in</string>
+    
+    <string name="more">Is hoger dan</string>
+    <string name="less">Is lager dan</string>
+    <string name="on_fire">Bijna!</string>
+
+    <string name="win">Oké, jij wint</string>
+    <string name="lose">Helaas. Het getal was: </string>
+
+    <string name="new_game">Nieuw spel</string>
+
+    <string name="error">Voer een geldig getal in</string>
+
+    <string name="end_game">Het spel is afgelopen</string>
+    <string name="play_again">Wil je nog een keer spelen?</string>
+
+    <string name="play">Spelen</string>
+    <string name="exit">Afsluiten</string>
+    <string name="ok">Oké</string>
+
+    <string name="tries_text">Pogingen: </string>
+
+    <string name="in_range">Buiten bereik: voer een getal in tussen 1 en 100</string>
+
+</resources>
