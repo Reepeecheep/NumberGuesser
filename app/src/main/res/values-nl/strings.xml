@@ -28,5 +28,9 @@
     <string name="tries_text">Pogingen: </string>
 
     <string name="in_range">Buiten bereik: voer een getal in tussen 1 en 100</string>
+    <string name="change_msg">Veranderd</string>
+    <string name="character1">Genie (Nieuw)</string>
+    <string name="character2">Genie (Oud)</string>
+    <string name="fab_menu">Menu</string>
 
 </resources>

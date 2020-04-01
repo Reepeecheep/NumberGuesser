@@ -66,6 +66,8 @@ public class Guesser extends Activity {
         final EditText number_txt = findViewById(R.id.number);
         final Button button = findViewById(R.id.guess_button);
 
+        final android.widget.ImageView imageview = findViewById(R.id.imageView);
+
         fab1 =  this.findViewById(R.id.fab1);
         fab2 =  this.findViewById(R.id.fab2);
         //fab3 =  this.findViewById(R.id.fab3);
@@ -81,6 +83,13 @@ public class Guesser extends Activity {
         SharedPreferences Preferences = getSharedPreferences("com.numguesser.com", Context.MODE_PRIVATE);
         MainCharacter = Preferences.getInt("avatar", R.drawable.android_genio);
         switch_image(MainCharacter, 0);
+
+        imageview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                menu.close(true);
+            }
+        });
 
         button.setOnClickListener(new View.OnClickListener() {
 
@@ -131,7 +140,7 @@ public class Guesser extends Activity {
 
     public void Alert(String tittle, String message, Integer game_over){
 
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this );
 
         alertDialogBuilder.setTitle(tittle);
         alertDialogBuilder.setMessage(message);
@@ -200,6 +209,14 @@ public class Guesser extends Activity {
 
         if (input_number > rnd){
             Text = getString(R.string.less);
+            if (input_number < clue_max || clue_max == 0){
+                clue_max = input_number;
+            }
+        }
+        else{
+            if (input_number > clue_min || clue_min == 0) {
+                clue_min = input_number;
+            }
         }
 
         if (input_number >= rnd - 3 && input_number <= rnd + 3) {
@@ -217,7 +234,14 @@ public class Guesser extends Activity {
             Text = String.format("%s, %s", Tittle, Text);
         }
 
-        String msg = String.format("(%d) %s", input_number, Text);
+        String msg = " X ";
+
+        if (clue_min != 0){
+            msg = String.format("%d < " + msg, clue_min);
+        }
+        if (clue_max != 0){
+            msg = String.format(msg + " < %d", clue_max);
+        }
 
         return msg;
     }
@@ -267,6 +291,7 @@ public class Guesser extends Activity {
         switch_image(MainCharacter, 0);
         rnd = rand_num.nextInt(100) + 1;
         attempt = 5;
+        clue_max = clue_min = 0;
         final TextView tries_label = findViewById(R.id.tries_label);
         final TextView last_try_label = findViewById(R.id.last_try_label);
         tries_label.setText(String.format("%s %d ",getString(R.string.tries_text), attempt));
