@@ -32,7 +32,6 @@ import android.os.Vibrator;
 import android.os.VibrationEffect;
 import android.os.Build;
 
-
 import android.widget.Toast;
 import java.util.Random;
 import android.os.Handler;
@@ -62,6 +61,7 @@ public class Guesser extends Activity {
         start_game();
 
         final TextView tries_label = findViewById(R.id.tries_label);
+        final TextView clue_label = findViewById(R.id.clue_label);
         final TextView last_try_label = findViewById(R.id.last_try_label);
         final EditText number_txt = findViewById(R.id.number);
         final Button button = findViewById(R.id.guess_button);
@@ -118,12 +118,14 @@ public class Guesser extends Activity {
                             tries_label.setText(String.format("%s %d ",getString(R.string.tries_text), attempt));
 
                             if (attempt > 0){
-                                String result = check_rand(num, rnd);
-                                last_try_label.setText(result);
+                                String[] result = check_rand(num, rnd);
+                                last_try_label.setText(result[0]);
+                                clue_label.setText(result[1]);
                             }
                             else {
                                 Alert(getString(R.string.end_game), getString(R.string.lose)+rnd, 1);
                                 last_try_label.setText(String.format("%s %d ", getString(R.string.lose), rnd));
+                                clue_label.setText("");
                             }
                         }
                     }
@@ -196,15 +198,15 @@ public class Guesser extends Activity {
                           alertDialog.dismiss();
                       }
                   }
-              } , 2200
+              } , 300
             );
         }
 
         //alertDialog.show();
     }
 
-    public String check_rand(Integer input_number, Integer rnd){
-        String Tittle = String.format("%s %d", getString(R.string.tries_text), attempt);
+    public String[] check_rand(Integer input_number, Integer rnd){
+        String[] result_info = new String[2];
         String Text = getString(R.string.more);
 
         if (input_number > rnd){
@@ -220,7 +222,7 @@ public class Guesser extends Activity {
         }
 
         if (input_number >= rnd - 3 && input_number <= rnd + 3) {
-            Tittle = getString(R.string.on_fire);
+            Text = String.format("%s %s", getString(R.string.on_fire), Text);
             switch_image(R.drawable.android_genio_o, 1);
             vibrate();
         }
@@ -228,22 +230,21 @@ public class Guesser extends Activity {
             switch_image(MainCharacter, 0);
         }
 
-        Alert(Tittle, Text, 0);
+        String last_clue = String.format("(%d) %s", input_number, Text);
 
-        if (Tittle != ""){
-            Text = String.format("%s, %s", Tittle, Text);
-        }
-
-        String msg = " X ";
+        String clue = " X ";
 
         if (clue_min != 0){
-            msg = String.format("%d < " + msg, clue_min);
+            clue = String.format("%d < " + clue, clue_min);
         }
         if (clue_max != 0){
-            msg = String.format(msg + " < %d", clue_max);
+            clue = String.format(clue + " < %d", clue_max);
         }
 
-        return msg;
+        result_info[0] = last_clue;
+        result_info[1] = clue;
+
+        return result_info;
     }
 
     public void vibrate(){
@@ -293,9 +294,11 @@ public class Guesser extends Activity {
         attempt = 5;
         clue_max = clue_min = 0;
         final TextView tries_label = findViewById(R.id.tries_label);
+        final TextView clue_label = findViewById(R.id.clue_label);
         final TextView last_try_label = findViewById(R.id.last_try_label);
         tries_label.setText(String.format("%s %d ",getString(R.string.tries_text), attempt));
         last_try_label.setText("");
+        clue_label.setText("");
     }
 
     private View.OnClickListener clickListener = new View.OnClickListener() {
