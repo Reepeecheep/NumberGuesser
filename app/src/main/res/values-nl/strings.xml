@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Getal raden</string>
-    <string name="welcome"><b>Hee, maatje!</b>\nIk heb een getal tussen 0 en 100 in gedachten.\nKun jij in max. 5 keer raden welk getal dat is?\n</string>
+    <string name="welcome"><b>Hee, maatje!</b>\nIk heb een getal tussen 1 en 100 in gedachten.\nKun jij in max. 5 keer raden welk getal dat is?\n</string>
     <string name="action_settings">Instellingen</string>
     <string name="guess">Gokken</string>
     <string name="ask">Voer een getal in</string>
