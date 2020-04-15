@@ -3,7 +3,7 @@
 
     <string name="action_settings">Paramètres</string>
     <string name="app_name">Devineur de nombre</string>
-    <string name="welcome"><b>Bonjour ami !</b>\nJe pense à un nombre compris entre 1 et 100\nPouvez-vous deviner en 5 essais ?\n</string>
+    <string name="welcome"><b>Bonjour ami !</b>\nJe pense à un nombre compris entre 1 et #\nPouvez-vous deviner en $ essais ?\n</string>
     <string name="guess">Deviner</string>
     <string name="ask">Entrez un nombre</string>
 

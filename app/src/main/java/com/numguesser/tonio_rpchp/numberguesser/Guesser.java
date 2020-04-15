@@ -41,6 +41,10 @@ import com.github.clans.fab.FloatingActionMenu;
 
 public class Guesser extends Activity {
 
+    public int Level, Points, Percent;
+    public int[] attempts_by_level = new int[] {5};
+    public int[] range_by_level   = new int[] {100};
+
     public int attempt;
     Random rand_num = new Random();
     int rnd;
@@ -57,6 +61,9 @@ public class Guesser extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guesser);
+
+        SharedPreferences Preferences = getSharedPreferences("com.numguesser.com", Context.MODE_PRIVATE);
+        Level = Preferences.getInt("level", 0);
 
         start_game();
 
@@ -80,7 +87,6 @@ public class Guesser extends Activity {
         menu = findViewById(R.id.fab_menu);
         menu.setClosedOnTouchOutside(true);
 
-        SharedPreferences Preferences = getSharedPreferences("com.numguesser.com", Context.MODE_PRIVATE);
         MainCharacter = Preferences.getInt("avatar", R.drawable.android_genio);
         switch_image(MainCharacter, 0);
 
@@ -104,7 +110,7 @@ public class Guesser extends Activity {
                     try{
                         int num = Integer.parseInt(String.valueOf(number_txt.getText()));
 
-                        if (num == 0 || num > 100){
+                        if (num == 0 || num > range_by_level[Level]){
                             Alert(getString(R.string.error), getString(R.string.in_range), 0);
                         }
                         else if (num == rnd) {
@@ -290,15 +296,23 @@ public class Guesser extends Activity {
 
     public void start_game(){
         switch_image(MainCharacter, 0);
-        rnd = rand_num.nextInt(100) + 1;
-        attempt = 5;
+        int range = range_by_level[Level];
+        rnd = rand_num.nextInt(range) + 1;
+        attempt = attempts_by_level[Level];
+
         clue_max = clue_min = 0;
+        final TextView info_label = findViewById(R.id.info_label);
         final TextView tries_label = findViewById(R.id.tries_label);
         final TextView clue_label = findViewById(R.id.clue_label);
         final TextView last_try_label = findViewById(R.id.last_try_label);
+
+        //info_label.setText(info_label.getText().toString().replace("100", ""+range));
+        info_label.setText(getString(R.string.welcome).replace("#", ""+range).replace("$", ""+attempt));
+
         tries_label.setText(String.format("%s %d ",getString(R.string.tries_text), attempt));
         last_try_label.setText("");
         clue_label.setText("");
+
     }
 
     private View.OnClickListener clickListener = new View.OnClickListener() {

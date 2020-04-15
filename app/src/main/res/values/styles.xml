@@ -7,8 +7,8 @@
 
     <style name="MenuButtons">
         <item name="fab_colorNormal">#FFFFFF</item>
-        <item name="fab_colorPressed">#FF5622</item>
-        <item name="fab_colorRipple">#C5C4C5</item>
+        <item name="fab_colorPressed">#04C2F3</item>
+        <item name="fab_colorRipple">#8BDDF5</item>
     </style>
 
 </resources>
