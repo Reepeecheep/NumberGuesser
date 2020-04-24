@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:textColor="#00C000"
-        android:textSize="30sp" />
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/last_try_label"
@@ -75,6 +75,38 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/message_label" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/label_vertical_margin"
+        >
+
+        <TextView
+            android:id="@+id/x1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#00C000"
+            android:textSize="30sp"
+            android:text=""
+            android:fontFamily="casual"
+            />
+
+        <TextView
+            android:id="@+id/x2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#00C000"
+            android:textSize="30sp"
+            android:gravity="right"
+            android:text=""
+            android:fontFamily="casual"
+            />
+
+    </LinearLayout>
+
+
 
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -126,6 +158,15 @@
                 fab:fab_label="@string/character2"
                 style="@style/MenuButtons"
                 />
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/fab3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_businessman"
+                fab:fab_label="@string/character2"
+                style="@style/MenuButtons"
+                />
             <!--
             <com.github.clans.fab.FloatingActionButton
                 android:id="@+id/fab3"
@@ -138,6 +179,7 @@
             -->
 
         </com.github.clans.fab.FloatingActionMenu>
+
 
     </RelativeLayout>
 

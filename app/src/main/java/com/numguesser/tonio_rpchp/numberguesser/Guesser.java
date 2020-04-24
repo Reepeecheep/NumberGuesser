@@ -55,7 +55,7 @@ public class Guesser extends Activity {
     private FloatingActionMenu menu;
     private FloatingActionButton fab1;
     private FloatingActionButton fab2;
-    //private FloatingActionButton fab3;
+    private FloatingActionButton fab3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,11 +77,11 @@ public class Guesser extends Activity {
 
         fab1 =  this.findViewById(R.id.fab1);
         fab2 =  this.findViewById(R.id.fab2);
-        //fab3 =  this.findViewById(R.id.fab3);
+        fab3 =  this.findViewById(R.id.fab3);
 
         fab1.setOnClickListener(clickListener);
         fab2.setOnClickListener(clickListener);
-        //fab3.setOnClickListener(clickListener);
+        fab3.setOnClickListener(clickListener);
 
 
         menu = findViewById(R.id.fab_menu);
@@ -118,6 +118,7 @@ public class Guesser extends Activity {
                             Alert(getString(R.string.end_game), getString(R.string.win), 1);
                             last_try_label.setText(getString(R.string.win));
                             vibrate();
+                            points_accumulator();
                         }
                         else{
                             attempt--;
@@ -132,6 +133,7 @@ public class Guesser extends Activity {
                                 Alert(getString(R.string.end_game), getString(R.string.lose)+rnd, 1);
                                 last_try_label.setText(String.format("%s %d ", getString(R.string.lose), rnd));
                                 clue_label.setText("");
+                                points_accumulator();
                             }
                         }
                     }
@@ -289,15 +291,30 @@ public class Guesser extends Activity {
                     my_drawable_id = R.drawable.android_genio_old_sad;
                 }
                 break;
+
+            case R.drawable.businessman:
+
+                if (mod == 1){
+                    my_drawable_id = R.drawable.businessman_o;
+                }
+                if (mod == 2){
+                    my_drawable_id = R.drawable.business_sad;
+                }
+                break;
         }
 
         back_img.setImageResource(my_drawable_id);
     }
 
+    public void points_accumulator(){
+        int x = (attempt * 5) * (Level + 1);
+        System.out.println(x);
+    }
+
     public void start_game(){
         switch_image(MainCharacter, 0);
         int range = range_by_level[Level];
-        rnd = rand_num.nextInt(range) + 1;
+        rnd = 50;//rand_num.nextInt(range) + 1;
         attempt = attempts_by_level[Level];
 
         clue_max = clue_min = 0;
@@ -306,7 +323,6 @@ public class Guesser extends Activity {
         final TextView clue_label = findViewById(R.id.clue_label);
         final TextView last_try_label = findViewById(R.id.last_try_label);
 
-        //info_label.setText(info_label.getText().toString().replace("100", ""+range));
         info_label.setText(getString(R.string.welcome).replace("#", ""+range).replace("$", ""+attempt));
 
         tries_label.setText(String.format("%s %d ",getString(R.string.tries_text), attempt));
@@ -332,12 +348,12 @@ public class Guesser extends Activity {
                 case R.id.fab2:
                     img_resource = R.drawable.android_genio_old;
                     break;
-                /*
+
                 case R.id.fab3:
-                    fab1.setVisibility(View.GONE);
-                    fab2.setVisibility(View.VISIBLE);
+                    //fab1.setVisibility(View.GONE);
+                    //fab2.setVisibility(View.VISIBLE);
+                    img_resource = R.drawable.businessman;
                     break;
-                 */
             }
 
             Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.change_msg), Toast.LENGTH_SHORT);
