@@ -27,11 +27,16 @@
 
     <string name="tries_text">Tries: </string>
 
-    <string name="in_range">Outside range: Insert a number between 1 and 100</string>
+    <string name="in_range">"Outside range: Insert a number between 1 and "</string>
 
     <string name="fab_menu">Menu</string>
     <string name="character1">Genie (New)</string>
     <string name="character2">Genie (Old)</string>
     <string name="change_msg">Changed</string>
+    <string name="level">Level:</string>
+    <string name="character3">Businessman</string>
+    <string name="points">Points:</string>
+    <string name="level_up">"You are Level "</string>
+    <string name="rewards_level">Check your new skin</string>
 
 </resources>

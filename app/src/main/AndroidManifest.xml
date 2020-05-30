@@ -10,7 +10,7 @@
         <activity
             android:name=".Guesser"
             android:label="@string/app_name"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="fullSensor" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

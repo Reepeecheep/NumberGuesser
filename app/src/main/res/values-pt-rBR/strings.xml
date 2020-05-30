@@ -27,10 +27,15 @@
 
     <string name="tries_text">Tentativas: </string>
 
-    <string name="in_range">Fora do intervalo: Insira um número entre 1 e 100</string>
+    <string name="in_range">"Fora do intervalo: Insira um número entre 1 e "</string>
     <string name="fab_menu">Menu</string>
     <string name="character1">Gênio (Novo)</string>
     <string name="character2">Gênio (Velho)</string>
     <string name="change_msg">Mudou</string>
+    <string name="level">"Nível: "</string>
+    <string name="character3">Businessman</string>
+    <string name="points">"Pontos: "</string>
+    <string name="level_up">"Você é nível "</string>
+    <string name="rewards_level">Verifique seu novo traje</string>
 
 </resources>

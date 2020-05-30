@@ -27,10 +27,15 @@
 
     <string name="tries_text">Pogingen: </string>
 
-    <string name="in_range">Buiten bereik: voer een getal in tussen 1 en 100</string>
+    <string name="in_range">"Buiten bereik: voer een getal in tussen 1 en "</string>
     <string name="change_msg">Veranderd</string>
     <string name="character1">Genie (Nieuw)</string>
     <string name="character2">Genie (Oud)</string>
     <string name="fab_menu">Menu</string>
+    <string name="character3">Businessman</string>
+    <string name="level">"Niveau: "</string>
+    <string name="points">"Punten: "</string>
+    <string name="level_up">"Du er niveau "</string>
+    <string name="rewards_level">Tjek dit nye kostume</string>
 
 </resources>

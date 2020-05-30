@@ -25,12 +25,17 @@
     <string name="exit">Quitter</string>
     <string name="ok">OK</string>
 
-    <string name="tries_text">Essais : </string>
+    <string name="tries_text">Essais:</string>
 
-    <string name="in_range">Hors de portée : insérer un nombre compris entre 1 et 100</string>
+    <string name="in_range">"Hors de portée : insérer un nombre compris entre 1 et "</string>
     <string name="fab_menu">Menu</string>
     <string name="character1">Génie (Moderne)</string>
     <string name="character2">Génie (Vieux)</string>
     <string name="change_msg">Changé</string>
+    <string name="character3">Businessman</string>
+    <string name="level">"Niveau: "</string>
+    <string name="points">"Points: "</string>
+    <string name="level_up">"Vous êtes niveau "</string>
+    <string name="rewards_level">Vérifiez votre nouveau costume</string>
 
 </resources>

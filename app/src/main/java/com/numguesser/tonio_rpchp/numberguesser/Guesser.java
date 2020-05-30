@@ -42,8 +42,8 @@ import com.github.clans.fab.FloatingActionMenu;
 public class Guesser extends Activity {
 
     public int Level, Points, Percent;
-    public int[] attempts_by_level = new int[] {5};
-    public int[] range_by_level   = new int[] {100};
+    public int[] attempts_by_level = new int[] {5, 7, 8, 10, 10};
+    public int[] range_by_level   = new int[] {100, 200, 500, 1000, 2000};
 
     public int attempt;
     Random rand_num = new Random();
@@ -64,8 +64,7 @@ public class Guesser extends Activity {
 
         SharedPreferences Preferences = getSharedPreferences("com.numguesser.com", Context.MODE_PRIVATE);
         Level = Preferences.getInt("level", 0);
-
-        start_game();
+        Points = Preferences.getInt("points", 0);
 
         final TextView tries_label = findViewById(R.id.tries_label);
         final TextView clue_label = findViewById(R.id.clue_label);
@@ -83,9 +82,10 @@ public class Guesser extends Activity {
         fab2.setOnClickListener(clickListener);
         fab3.setOnClickListener(clickListener);
 
-
         menu = findViewById(R.id.fab_menu);
         menu.setClosedOnTouchOutside(true);
+
+        start_game();
 
         MainCharacter = Preferences.getInt("avatar", R.drawable.android_genio);
         switch_image(MainCharacter, 0);
@@ -111,7 +111,7 @@ public class Guesser extends Activity {
                         int num = Integer.parseInt(String.valueOf(number_txt.getText()));
 
                         if (num == 0 || num > range_by_level[Level]){
-                            Alert(getString(R.string.error), getString(R.string.in_range), 0);
+                            Alert(getString(R.string.error), String.format("%s %d", getString(R.string.in_range), range_by_level[Level]), 0);
                         }
                         else if (num == rnd) {
                             switch_image(R.drawable.android_genio_sad, 2);
@@ -133,12 +133,11 @@ public class Guesser extends Activity {
                                 Alert(getString(R.string.end_game), getString(R.string.lose)+rnd, 1);
                                 last_try_label.setText(String.format("%s %d ", getString(R.string.lose), rnd));
                                 clue_label.setText("");
-                                points_accumulator();
                             }
                         }
                     }
                     catch(Exception e){
-                        Alert(getString(R.string.error), getString(R.string.in_range), 0);
+                        Alert(getString(R.string.error), String.format("%s %d", getString(R.string.in_range), range_by_level[Level]), 0);
                     }
                 }
 
@@ -307,14 +306,30 @@ public class Guesser extends Activity {
     }
 
     public void points_accumulator(){
-        int x = (attempt * 5) * (Level + 1);
-        System.out.println(x);
+        int aux = Level;
+        if (Level == 0){
+            aux = 1;
+        }
+        Points = Points + ((attempt * 5) * (aux));
+
+        SharedPreferences Preferences = getSharedPreferences("com.numguesser.com", Context.MODE_PRIVATE);
+        SharedPreferences.Editor PreferencesEditor;
+        PreferencesEditor = Preferences.edit();
+
+        PreferencesEditor.putInt("points", Points);
+
+        if (Points > (range_by_level[Level] * aux)&& Level <= 3) {
+            PreferencesEditor.putInt("level", Level + 1);
+            Level += 1;
+            showLevelMsg();
+        }
+        PreferencesEditor.commit();
     }
 
     public void start_game(){
         switch_image(MainCharacter, 0);
         int range = range_by_level[Level];
-        rnd = 50;//rand_num.nextInt(range) + 1;
+        rnd = rand_num.nextInt(range) + 1;
         attempt = attempts_by_level[Level];
 
         clue_max = clue_min = 0;
@@ -329,6 +344,34 @@ public class Guesser extends Activity {
         last_try_label.setText("");
         clue_label.setText("");
 
+        final TextView points_label = findViewById(R.id.points_level);
+        final TextView level_label = findViewById(R.id.level_label);
+
+        points_label.setText(String.format("%s %d",getString(R.string.points), Points));
+        level_label.setText(String.format("%s %d ",getString(R.string.level), Level));
+
+        showSkinsByLevel();
+    }
+
+    private void showSkinsByLevel(){
+        if (Level >= 3){
+            fab3.setVisibility(View.VISIBLE);
+        }
+    }
+
+    private void showLevelMsg(){
+        String msg = "";
+
+        if (Level == 3){
+            msg = getString(R.string.rewards_level);
+        }
+
+        Toast toast = Toast.makeText(
+            getApplicationContext(),
+            String.format("%s %d %s",getString(R.string.level_up), Level, msg),
+            Toast.LENGTH_LONG
+        );
+        toast.show();
     }
 
     private View.OnClickListener clickListener = new View.OnClickListener() {
