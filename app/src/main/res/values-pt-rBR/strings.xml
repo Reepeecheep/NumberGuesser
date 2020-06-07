@@ -6,7 +6,7 @@
     <string name="action_settings">Configurações</string>
     <string name="guess">Adivinhar</string>
     <string name="ask">Digite um número</string>
-  
+
     <string name="more">É maior do que</string>
     <string name="less">É menor do que</string>
     <string name="on_fire">Bem próximo!</string>
