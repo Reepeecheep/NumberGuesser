@@ -40,21 +40,19 @@ import java.util.Random;
 
 public class Guesser extends Activity {
 
+    public final int[] attempts_by_level = new int[]{5, 7, 8, 10, 10};
+    public final int[] range_by_level = new int[]{100, 200, 500, 1000, 2000};
+    final Random rand_num = new Random();
     public int Level;
     public int Points;
-    public int[] attempts_by_level = new int[]{5, 7, 8, 10, 10};
-    public int[] range_by_level = new int[]{100, 200, 500, 1000, 2000};
-
     public int attempt;
-    Random rand_num = new Random();
     int rnd;
     int clue_min = 0;
     int clue_max = 0;
 
     int MainCharacter;
     private FloatingActionMenu menu;
-    private FloatingActionButton fab3;
-    private View.OnClickListener clickListener = new View.OnClickListener() {
+    private final View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
 
@@ -91,6 +89,7 @@ public class Guesser extends Activity {
             menu.close(true);
         }
     };
+    private FloatingActionButton fab3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
