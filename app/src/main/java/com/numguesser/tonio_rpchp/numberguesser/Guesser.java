@@ -29,6 +29,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -108,7 +109,7 @@ public class Guesser extends AppCompatActivity {
         final EditText number_txt = findViewById(R.id.number);
         final Button button = findViewById(R.id.guess_button);
 
-        final android.widget.ImageView imageview = findViewById(R.id.imageView);
+        final ImageView imageview = findViewById(R.id.imageView);
 
         FloatingActionButton fab1 = this.findViewById(R.id.fab1);
         FloatingActionButton fab2 = this.findViewById(R.id.fab2);
@@ -268,7 +269,7 @@ public class Guesser extends AppCompatActivity {
     }
 
     public void switch_image(Integer my_drawable_id, int mod) {
-        android.widget.ImageView back_img = findViewById(R.id.imageView);
+        ImageView back_img = findViewById(R.id.imageView);
 
         switch (MainCharacter) {
             case R.drawable.android_genio:
