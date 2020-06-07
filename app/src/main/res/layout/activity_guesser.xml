@@ -115,23 +115,20 @@
             android:id="@+id/fab_menu"
             android:layout_width="match_parent"
             android:layout_height="73dp"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:paddingBottom="10dp"
-
             fab:menu_backgroundColor="#44ffffff"
             fab:menu_colorNormal="#2196F3"
             fab:menu_colorPressed="#00BCD4"
             fab:menu_colorRipple="#00D4AA"
-
             fab:menu_fab_label="@string/fab_menu"
             fab:menu_icon="@drawable/ic_tool_white"
             fab:menu_labels_ellipsize="end"
-            fab:menu_labels_singleLine="true"
-
-            >
+            fab:menu_labels_singleLine="true">
 
             <com.github.clans.fab.FloatingActionButton
                 android:id="@+id/fab1"

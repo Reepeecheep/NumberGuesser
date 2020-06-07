@@ -20,7 +20,6 @@ package com.numguesser.tonio_rpchp.numberguesser;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
@@ -41,7 +40,8 @@ import java.util.Random;
 
 public class Guesser extends Activity {
 
-    public int Level, Points, Percent;
+    public int Level;
+    public int Points;
     public int[] attempts_by_level = new int[]{5, 7, 8, 10, 10};
     public int[] range_by_level = new int[]{100, 200, 500, 1000, 2000};
 
@@ -53,8 +53,6 @@ public class Guesser extends Activity {
 
     int MainCharacter;
     private FloatingActionMenu menu;
-    private FloatingActionButton fab1;
-    private FloatingActionButton fab2;
     private FloatingActionButton fab3;
     private View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
@@ -85,7 +83,7 @@ public class Guesser extends Activity {
             toast.show();
 
             PreferencesEditor.putInt("avatar", img_resource);
-            PreferencesEditor.commit();
+            PreferencesEditor.apply();
 
             switch_image(img_resource, 0);
             MainCharacter = img_resource;
@@ -111,8 +109,8 @@ public class Guesser extends Activity {
 
         final android.widget.ImageView imageview = findViewById(R.id.imageView);
 
-        fab1 = this.findViewById(R.id.fab1);
-        fab2 = this.findViewById(R.id.fab2);
+        FloatingActionButton fab1 = this.findViewById(R.id.fab1);
+        FloatingActionButton fab2 = this.findViewById(R.id.fab2);
         fab3 = this.findViewById(R.id.fab3);
 
         fab1.setOnClickListener(clickListener);
@@ -127,55 +125,47 @@ public class Guesser extends Activity {
         MainCharacter = Preferences.getInt("avatar", R.drawable.android_genio);
         switch_image(MainCharacter, 0);
 
-        imageview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                menu.close(true);
-            }
-        });
+        imageview.setOnClickListener(v -> menu.close(true));
 
-        button.setOnClickListener(new View.OnClickListener() {
+        button.setOnClickListener(v -> {
+            // Perform action on click
 
-            public void onClick(View v) {
-                // Perform action on click
+            InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+            imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
 
-                InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
-                imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+            if (attempt != 0) {
 
-                if (attempt != 0) {
+                try {
+                    int num = Integer.parseInt(String.valueOf(number_txt.getText()));
 
-                    try {
-                        int num = Integer.parseInt(String.valueOf(number_txt.getText()));
-
-                        if (num == 0 || num > range_by_level[Level]) {
-                            Alert(getString(R.string.error), String.format("%s %d", getString(R.string.in_range), range_by_level[Level]), 0);
-                        } else if (num == rnd) {
-                            switch_image(R.drawable.android_genio_sad, 2);
-                            Alert(getString(R.string.end_game), getString(R.string.win), 1);
-                            last_try_label.setText(getString(R.string.win));
-                            vibrate();
-                            points_accumulator();
-                        } else {
-                            attempt--;
-                            tries_label.setText(String.format("%s %d ", getString(R.string.tries_text), attempt));
-
-                            if (attempt > 0) {
-                                String[] result = check_rand(num, rnd);
-                                last_try_label.setText(result[0]);
-                                clue_label.setText(result[1]);
-                            } else {
-                                Alert(getString(R.string.end_game), getString(R.string.lose) + rnd, 1);
-                                last_try_label.setText(String.format("%s %d ", getString(R.string.lose), rnd));
-                                clue_label.setText("");
-                            }
-                        }
-                    } catch (Exception e) {
+                    if (num == 0 || num > range_by_level[Level]) {
                         Alert(getString(R.string.error), String.format("%s %d", getString(R.string.in_range), range_by_level[Level]), 0);
-                    }
-                }
+                    } else if (num == rnd) {
+                        switch_image(R.drawable.android_genio_sad, 2);
+                        Alert(getString(R.string.end_game), getString(R.string.win), 1);
+                        last_try_label.setText(getString(R.string.win));
+                        vibrate();
+                        points_accumulator();
+                    } else {
+                        attempt--;
+                        tries_label.setText(String.format("%s %d ", getString(R.string.tries_text), attempt));
 
-                number_txt.setText("");
+                        if (attempt > 0) {
+                            String[] result = check_rand(num, rnd);
+                            last_try_label.setText(result[0]);
+                            clue_label.setText(result[1]);
+                        } else {
+                            Alert(getString(R.string.end_game), getString(R.string.lose) + rnd, 1);
+                            last_try_label.setText(String.format("%s %d ", getString(R.string.lose), rnd));
+                            clue_label.setText("");
+                        }
+                    }
+                } catch (Exception e) {
+                    Alert(getString(R.string.error), String.format("%s %d", getString(R.string.in_range), range_by_level[Level]), 0);
+                }
             }
+
+            number_txt.setText("");
         });
 
     }
@@ -191,53 +181,32 @@ public class Guesser extends Activity {
             alertDialogBuilder.setCancelable(false);
             // New Game
             alertDialogBuilder.setPositiveButton(getString(R.string.play),
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface arg0, int arg1) {
-                            start_game();
-                        }
-                    });
+                    (arg0, arg1) -> start_game());
             // Exit
             alertDialogBuilder.setNegativeButton(getString(R.string.exit),
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            System.exit(1);
-                        }
-                    });
+                    (dialog, which) -> System.exit(1));
         } else {
             alertDialogBuilder.setCancelable(false);
             alertDialogBuilder.setPositiveButton(getString(R.string.ok),
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface arg0, int arg1) {
-                        }
+                    (arg0, arg1) -> {
                     });
         }
 
         final AlertDialog alertDialog = alertDialogBuilder.create();
 
-        new Handler().postDelayed(new
-                                          Runnable() {
-                                              @Override
-                                              public void run() {
-                                                  if (!alertDialog.isShowing()) {
-                                                      alertDialog.show();
-                                                  }
-                                              }
-                                          }, 700
+        new Handler().postDelayed(() -> {
+                    if (!alertDialog.isShowing()) {
+                        alertDialog.show();
+                    }
+                }, 700
         );
 
         if (game_over != 1) {
-            new Handler().postDelayed(new
-                                              Runnable() {
-                                                  @Override
-                                                  public void run() {
-                                                      if (alertDialog.isShowing()) {
-                                                          alertDialog.dismiss();
-                                                      }
-                                                  }
-                                              }, 300
+            new Handler().postDelayed(() -> {
+                        if (alertDialog.isShowing()) {
+                            alertDialog.dismiss();
+                        }
+                    }, 300
             );
         }
 
@@ -285,7 +254,7 @@ public class Guesser extends Activity {
     }
 
     public void vibrate() {
-        Vibrator v = (Vibrator) getSystemService(this.VIBRATOR_SERVICE);
+        Vibrator v = (Vibrator) getSystemService(VIBRATOR_SERVICE);
         v.vibrate(500);
 
         // Vibrate for 500 milliseconds
@@ -353,7 +322,7 @@ public class Guesser extends Activity {
             Level += 1;
             showLevelMsg();
         }
-        PreferencesEditor.commit();
+        PreferencesEditor.apply();
     }
 
     public void start_game() {
