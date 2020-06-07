@@ -18,7 +18,6 @@
 package com.numguesser.tonio_rpchp.numberguesser;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -33,12 +32,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
 
 import java.util.Random;
 
-public class Guesser extends Activity {
+public class Guesser extends AppCompatActivity {
 
     public final int[] attempts_by_level = new int[]{5, 7, 8, 10, 10};
     public final int[] range_by_level = new int[]{100, 200, 500, 1000, 2000};
