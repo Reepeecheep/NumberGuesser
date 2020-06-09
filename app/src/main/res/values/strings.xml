@@ -2,16 +2,16 @@
 <resources>
 
     <string name="app_name">Number Guesser</string>
-    <string name="welcome"><b>Hello Friend!</b>\nI think of a number between 1 and #\nCan you guess the number in $ attempts?\n</string>
+    <string name="welcome"><b>Hello, friend!</b>\nI\'m thinking of a number between 1 and #.\nCan you guess the number in $ attempts?\n</string>
     <string name="action_settings">Settings</string>
     <string name="guess">Guess</string>
     <string name="ask">Insert a number</string>
-    
-    <string name="more">Is Greater-than</string>
-    <string name="less">Is Less-than</string>
+
+    <string name="more">Is greater than</string>
+    <string name="less">Is less than</string>
     <string name="on_fire">So close!</string>
 
-    <string name="win">OK, You Win</string>
+    <string name="win">You win!</string>
     <string name="lose">You lose, the number was: </string>
 
     <string name="new_game">New Game</string>
