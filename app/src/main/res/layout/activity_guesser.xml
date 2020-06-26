@@ -12,6 +12,7 @@
 
     <TextView
         android:id="@+id/info_label"
+        android:textSize="13sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -32,26 +33,27 @@
             android:id="@+id/number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:ems="8"
             android:inputType="number"
             android:maxLength="4" />
 
+        <Button
+            android:id="@+id/guess_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/guess" />
+
     </LinearLayout>
 
-    <Button
-        android:id="@+id/guess_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/guess" />
-
     <TextView
+        android:layout_marginTop="4dp"
         android:id="@+id/tries_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:textColor="#00C000"
-        android:textSize="25sp" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/last_try_label"
@@ -69,11 +71,8 @@
         android:textColor="#00C000"
         android:textSize="15sp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
     <LinearLayout
+        android:layout_marginTop="4dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/label_vertical_margin"
@@ -86,7 +85,7 @@
             android:fontFamily="casual"
             android:text=""
             android:textColor="#00C000"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/points_level"
@@ -96,7 +95,7 @@
             android:gravity="right"
             android:text=""
             android:textColor="#00C000"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
     </LinearLayout>
 
     <RelativeLayout
